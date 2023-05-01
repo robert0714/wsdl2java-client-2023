@@ -1,0 +1,9 @@
+parameters:
+  param: []
+
+steps:
+  - ${{ each module in parameters.param }}:
+    - script: 'cp  $(System.DefaultWorkingDirectory)/${{ module }}/target/*.jar $(System.DefaultWorkingDirectory)/artifacts/'    
+      displayName: 'take artifact: ${{ module }}'
+      continueOnError: true  #This code in self-hosted agent  will be 
+     

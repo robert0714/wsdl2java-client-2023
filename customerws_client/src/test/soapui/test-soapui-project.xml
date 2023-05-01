@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="9014e349-4543-41ac-96e4-de6ee11b76d5" activeEnvironment="Default" name="CustomerService" resourceRoot="${projectDir}" soapui-version="5.2.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="c7c57a3c-d04b-4324-ab01-c14e401849f3" wsaVersion="NONE" name="CustomerServiceSoap12Http" type="wsdl" bindingName="{http://customerservice.tomd.xyz/}CustomerServiceSoap12Http" soapVersion="1_2" anonymous="optional" definition="../../main/wsdl/CustomerService.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\D:\Data\workspaces\tmp\wsdl2java-client-2023\customerws_client\src\main\wsdl\CustomerService.wsdl"><con:part><con:url>file:\D:\Data\workspaces\tmp\wsdl2java-client-2023\customerws_client\src\main\wsdl\CustomerService.wsdl</con:url><con:content><![CDATA[<definitions name="CustomerService" targetNamespace="http://customerservice.tomd.xyz/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://customerservice.tomd.xyz/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns0="http://customerservice.tomd.xyz/types/">
+  <types>
+    <schema targetNamespace="http://www.oracle.com/webservices/internal/literal" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.oracle.com/webservices/internal/literal">
+      <import namespace="http://customerservice.tomd.xyz/types/"/>
+      <complexType name="list">
+        <complexContent>
+          <extension base="tns:collection">
+            <sequence/>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="collection">
+        <sequence>
+          <element name="item" type="anyType" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+      </complexType>
+    </schema>
+    <schema targetNamespace="http://customerservice.tomd.xyz/types/" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://customerservice.tomd.xyz/types/" xmlns:ns1="http://www.oracle.com/webservices/internal/literal">
+      <import namespace="http://www.oracle.com/webservices/internal/literal"/>
+      <complexType name="CustomerItem">
+        <sequence>
+          <element name="firstName" type="string" nillable="true"/>
+          <element name="lastName" type="string"/>
+        </sequence>
+      </complexType>
+      <element name="getCustomersElement">
+        <complexType>
+          <sequence>
+            <element name="location" type="string" nillable="true"/>
+            <element name="criteria" type="string" nillable="true"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getCustomersResponseElement">
+        <complexType>
+          <sequence>
+            <element name="result" type="ns1:list" nillable="true"/>
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="CustomerService_getCustomers">
+    <part name="parameters" element="tns0:getCustomersElement"/>
+  </message>
+  <message name="CustomerService_getCustomersResponse">
+    <part name="parameters" element="tns0:getCustomersResponseElement"/>
+  </message>
+  <portType name="CustomerService">
+    <operation name="getCustomers">
+      <input message="tns:CustomerService_getCustomers"/>
+      <output message="tns:CustomerService_getCustomersResponse"/>
+    </operation>
+  </portType>
+  <binding name="CustomerServiceSoap12Http" type="tns:CustomerService">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getCustomers">
+      <soap12:operation soapAction="http://customerservice.tomd.xyz//getCustomers" soapActionRequired="false"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="CustomerService">
+    <port name="CustomerServiceSoap12HttpPort" binding="tns:CustomerServiceSoap12Http">
+      <soap12:address location="http://127.0.0.1:8888/CustomerService"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://127.0.0.1:8888/CustomerService</con:endpoint></con:endpoints><con:operation id="39327d43-7e11-4479-a1c8-ce63928f2360" isOneWay="false" action="http://customerservice.tomd.xyz//getCustomers" name="getCustomers" bindingOperationName="getCustomers" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="584d05db-938d-4d9d-aae6-6bc8071ed4e0" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://127.0.0.1:8888/CustomerService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://customerservice.tomd.xyz/types/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <typ:getCustomersElement>\r
+         <typ:location>?</typ:location>\r
+         <typ:criteria>?</typ:criteria>\r
+      </typ:getCustomersElement>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://customerservice.tomd.xyz/CustomerService/getCustomersRequest"/></con:call></con:operation></con:interface><con:mockService id="87dcb980-5c80-429a-89f4-d1ccf33805b5" port="8080" path="/" host="Shulin-2023" name="testmock"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="getCustomers" id="b98192ef-33e3-4c3e-9e7b-e5882b86bcb2" interface="CustomerServiceSoap12Http" operation="getCustomers"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="e0f9523b-f11f-4665-840a-eb3da3071063" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://customerservice.tomd.xyz/types/" xmlns:lit="http://www.oracle.com/webservices/internal/literal">
+   <soap:Header/>
+   <soap:Body>
+      <typ:getCustomersResponseElement>
+         <typ:result>
+            <!--Zero or more repetitions:-->
+            <lit:item>robert</lit:item>
+         </typ:result>
+      </typ:getCustomersResponseElement>
+   </soap:Body>
+</soap:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://customerservice.tomd.xyz/CustomerService/getCustomersResponse"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

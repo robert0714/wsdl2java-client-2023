@@ -1,0 +1,27 @@
+parameters:
+  param: []
+
+steps:
+  - ${{ each p in parameters.param }}:
+    - task: Maven@4
+      inputs: 
+        mavenPomFile: '$(Build.SourcesDirectory)/${{ p }}/pom.xml'
+        mavenDirectory: $(Build.SourcesDirectory)/${{ p }}
+        goals: 'deploy '
+        options: ' -Dmaven.test.skip=true  --settings $(Build.SourcesDirectory)/settings.xml  -DaltDeploymentRepository=CHT_WildFly::default::https://pkgs.dev.azure.com/ORG_NAME/PACKAGE_NAME/_packaging/REPOS_NAME/maven/v1'
+        publishJUnitResults: true
+        testResultsFiles: '**/surefire-reports/TEST-*.xml'
+        javaHomeOption: 'JDKVersion'
+        jdkVersionOption: '8'
+        mavenVersionOption: 'Default'
+        mavenOptions: '-Xmx3072m  $(MAVEN_OPTS)'
+        mavenAuthenticateFeed: true
+        effectivePomSkip: false
+        sonarQubeRunAnalysis: false
+        checkStyleRunAnalysis: false # replaced by sonarqube
+        pmdRunAnalysis: false  
+        findBugsRunAnalysis: false  
+        javadoc: false
+      displayName: "${{ p }} was compiled "
+      continueOnError: true  #This code in self-hosted agent  will be 
+ 
