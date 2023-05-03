@@ -11,9 +11,10 @@ You can use use one of these tools:
 * [Mock Services For Maven Integration Tests With The SOAPUI Plugin](https://sorenpoulsen.com/mock-services-for-maven-integration-tests-with-the-soapui-plugin) .
 
 # Tutorials
-## [JAX-WS SOAP Web Service Client For Java 11 With Maven](https://sorenpoulsen.com/jax-ws-soap-web-service-client-for-java-11-with-maven)
-## [The simple guide to WSDL (with an example)](https://www.tutorialworks.com/wsdl/)
-
+* [JAX-WS SOAP Web Service Client For Java 11 With Maven](https://sorenpoulsen.com/jax-ws-soap-web-service-client-for-java-11-with-maven)
+* [The simple guide to WSDL (with an example)](https://www.tutorialworks.com/wsdl/)
+* [Transition from Java 8 to Java 11](https://learn.microsoft.com/en-us/java/openjdk/transition-from-java-8-to-java-11)
+* [Migration JAXWS application from Java 8 to Java 11](https://stackoverflow.com/questions/51892528/migration-jaxws-application-from-java-8-to-java-11)
 
 # Importing Dependencies
 * Official Document:
